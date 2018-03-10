@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>单词列表 - {{ SITE_NAME }}</title>
+    <meta name="description" content="{{ SITE_DESC }}">
+    <meta name="keyword" content="{{ SITE_KEYWORD }}">
+    <style>
+
+        .basic-grey {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            background: #F7F7F7;
+            padding: 25px 0px 25px 0px;
+            font: 12px Georgia, "Times New Roman", Times, serif;
+            color: #888;
+            text-shadow: 1px 1px 1px #FFF;
+            border: 1px solid #E4E4E4;
+        }
+
+        .basic-grey h1 {
+            font-size: 25px;
+            padding: 0px 0px 10px 40px;
+            display: block;
+            border-bottom: 1px solid #E4E4E4;
+            margin: -10px -15px 30px -10px;;
+            color: #888;
+        }
+
+        .basic-grey h1 > span {
+            display: block;
+            font-size: 11px;
+        }
+
+        .basic-grey label {
+            display: block;
+            margin: 0px;
+        }
+
+        .basic-grey label > span {
+            float: left;
+            width: 20%;
+            text-align: right;
+            padding-right: 10px;
+            margin-top: 10px;
+            color: #888;
+        }
+
+        .basic-grey .basic-grey textarea, .basic-grey select, .basic-grey input[type="password"] {
+            border: 1px solid #DADADA;
+            color: #888;
+            height: 30px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            outline: 0 none;
+            padding: 3px 3px 3px 5px;
+            width: 70%;
+            font-size: 12px;
+            line-height: 15px;
+            box-shadow: inset 0px 1px 4px #ECECEC;
+            -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+            -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+        }
+
+        .basic-grey textarea {
+            padding: 5px 3px 3px 5px;
+        }
+
+        .basic-grey select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 0.01px;
+            text-overflow: '';
+            width: 70%;
+            height: 35px;
+            line-height: 25px;
+        }
+
+        .basic-grey textarea {
+            height: 100px;
+        }
+
+        .basic-grey .button {
+            background: #E27575;
+            border: none;
+            padding: 10px 25px 10px 25px;
+            color: #FFF;
+            box-shadow: 1px 1px 5px #B6B6B6;
+            border-radius: 3px;
+            text-shadow: 1px 1px 1px #9E3F3F;
+            cursor: pointer;
+        }
+
+        .basic-grey .button:hover {
+            background: #CF7A7A
+        }
+    </style>
+</head>
+<body>
+<form action="modle_1_result" method="post" class="basic-grey" onsubmit="return checkall()">
+    <h1>单词背诵
+        <span>{{ catname.first }}&nbsp;&nbsp;{{ catname.second }}&nbsp;&nbsp;{{ catname.third }}&nbsp;&nbsp;{{ catname.forth }}</span>
+    </h1>
+    <div style="margin-bottom: 10px;margin-left: 15px">填写单词时，请勿填写第一个字母，例如：<br>单词提示是c _ _ _，答案是come，您只需要填写ome即可！</div>
+    <div>
+        <table width="100%">
+            <tr bgcolor="#faebd7">
+                <td width="10%">编号</td>
+                <td width="45%">汉语</td>
+                <td width="45%">答案</td>
+
+            </tr>
+            {% for foo in wordcatinfor %}
+                <tr bgcolor="#f0ffff">
+                    <td width="10%">{{ forloop.counter }}</td>
+                    <td width="45%">{{ foo.mean_zh }} </td>
+                    <td width="45%"><input type="text" name="answer" style="width: 95%" placeholder="在此作答"></td>
+
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="text" name="wechat" value="{{ wechat }}" hidden>
+        <input type="text" name="wordids" value="{{ answer_word }}" hidden>
+        <input type="text" name="cat" value="{{ cat }}" hidden>
+
+    </div>
+    <br>
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="提交答案"/>
+    </label>
+</form>
+<br>
+<center>
+    <footer>Powered by <a href="http://www.liuyu.live"> Liu Yu</a></footer>
+</center>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>信息反馈</title>
+    <meta name="description" content="延边大学科学技术学院校园一点通信息平台。">
+    <meta name="keyword" content="校园一点通">
+    <style>
+
+        .basic-grey {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            background: #F7F7F7;
+            padding: 25px 15px 25px 10px;
+            font: 12px Georgia, "Times New Roman", Times, serif;
+            color: #888;
+            text-shadow: 1px 1px 1px #FFF;
+            border: 1px solid #E4E4E4;
+        }
+
+        .basic-grey h1 {
+            font-size: 25px;
+            padding: 0px 0px 10px 40px;
+            display: block;
+            border-bottom: 1px solid #E4E4E4;
+            margin: -10px -15px 30px -10px;;
+            color: #888;
+        }
+
+        .basic-grey h1 > span {
+            display: block;
+            font-size: 11px;
+        }
+
+        .basic-grey label {
+            display: block;
+            margin: 0px;
+        }
+
+        .basic-grey label > span {
+            float: left;
+            width: 20%;
+            text-align: right;
+            padding-right: 10px;
+            margin-top: 10px;
+            color: #888;
+        }
+
+        .basic-grey input[type="text"], .basic-grey textarea, .basic-grey select {
+            border: 1px solid #DADADA;
+            color: #888;
+            height: 30px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            outline: 0 none;
+            padding: 3px 3px 3px 5px;
+            width: 70%;
+            font-size: 12px;
+            line-height: 15px;
+            box-shadow: inset 0px 1px 4px #ECECEC;
+            -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+            -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+        }
+
+        .basic-grey textarea {
+            padding: 5px 3px 3px 5px;
+        }
+
+        .basic-grey select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 0.01px;
+            text-overflow: '';
+            width: 70%;
+            height: 35px;
+            line-height: 25px;
+        }
+
+        .basic-grey textarea {
+            height: 100px;
+        }
+
+        .basic-grey .button {
+            background: #E27575;
+            border: none;
+            padding: 10px 25px 10px 25px;
+            color: #FFF;
+            box-shadow: 1px 1px 5px #B6B6B6;
+            border-radius: 3px;
+            text-shadow: 1px 1px 1px #9E3F3F;
+            cursor: pointer;
+        }
+
+        .basic-grey .button:hover {
+            background: #CF7A7A
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+	function checkall(){
+	    var name = document.getElementById("name");
+	    var name_z = name.value;
+	    var message = document.getElementById("email");
+	    var message_z = message.value;
+	    var phone = document.getElementById("phone");
+	    var phone_z = phone.value;
+	    if(name_z == ""||name_z == null||message_z == ""||message_z == null||phone_z == ""||phone_z == null)
+	    {
+	        alert("名字,邮箱和电话号码均不可为空");
+	        return false;
+	    }
+    }
+</script>
+
+<form action="fan_resu" method="get" class="basic-grey" onsubmit="return checkall()">
+    <h1>信息反馈
+        <span>无论您对本平台有任何意见或者想法，无论您想说什么，或是商业合作，或是帮助我们完善信息，都可以在此处联系我们</span>
+    </h1>
+
+    <label>
+        <span>您的姓名 :</span>
+        <input id="username" type="text" name="username" value="{{ user.username }}"/>
+    </label>
+
+    <label>
+        <span>您的邮箱 :</span>
+        <input id="email" type="text" name="email" value="{{ user.email }}"/>
+    </label>
+
+    <label>
+        <span>您的电话 :</span>
+        <input id="qq" type="text" name="qq" value="{{ user.qq }}"/>
+    </label>
+
+    <label>
+        <span>微信号码 :</span>
+        <input id="wechat" type="text" name="wechat" placeholder="请在此处填写您的微信号码"/>
+    </label>
+
+
+    <label>
+        <span>具体描述 :</span>
+        <textarea id="message" name="message" placeholder="其他想说的，可以在此处给我们留言" style="resize: none"></textarea>
+    </label>
+    </label>
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="提交"/>
+        <input type="reset" class="button" value="重置"/>
+    </label>
+</form>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>背诵方式 - {{ SITE_NAME }}</title>
+    <meta name="description" content="{{ SITE_DESC }}">
+    <meta name="keyword" content="{{ SITE_KEYWORD }}">
+    <style>
+
+        .basic-grey {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            background: #F7F7F7;
+            padding: 25px 15px 25px 10px;
+            font: 12px Georgia, "Times New Roman", Times, serif;
+            color: #888;
+            text-shadow: 1px 1px 1px #FFF;
+            border: 1px solid #E4E4E4;
+        }
+
+        .basic-grey h1 {
+            font-size: 25px;
+            padding: 0px 0px 10px 40px;
+            display: block;
+            border-bottom: 1px solid #E4E4E4;
+            margin: -10px -15px 30px -10px;;
+            color: #888;
+        }
+
+        .basic-grey h1 > span {
+            display: block;
+            font-size: 11px;
+        }
+
+        .basic-grey label {
+            display: block;
+            margin: 0px;
+        }
+
+        .basic-grey label > span {
+            float: left;
+            width: 20%;
+            text-align: right;
+            padding-right: 10px;
+            margin-top: 10px;
+            color: #888;
+        }
+
+        .basic-grey input[type="text"], .basic-grey textarea, .basic-grey select, .basic-grey input[type="password"] {
+            border: 1px solid #DADADA;
+            color: #888;
+            height: 30px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            outline: 0 none;
+            padding: 3px 3px 3px 5px;
+            width: 70%;
+            font-size: 12px;
+            line-height: 15px;
+            box-shadow: inset 0px 1px 4px #ECECEC;
+            -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+            -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+        }
+
+        .basic-grey textarea {
+            padding: 5px 3px 3px 5px;
+        }
+
+        .basic-grey select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 0.01px;
+            text-overflow: '';
+            width: 70%;
+            height: 35px;
+            line-height: 25px;
+        }
+
+        .basic-grey textarea {
+            height: 100px;
+        }
+
+        .basic-grey .button {
+            background: #E27575;
+            border: none;
+            padding: 10px 25px 10px 25px;
+            color: #FFF;
+            box-shadow: 1px 1px 5px #B6B6B6;
+            border-radius: 3px;
+            text-shadow: 1px 1px 1px #9E3F3F;
+            cursor: pointer;
+        }
+
+        .basic-grey .button:hover {
+            background: #CF7A7A
+        }
+    </style>
+</head>
+<body>
+<form action="beistz" method="get" class="basic-grey">
+    <h1>背诵方式
+        <span>好的方式才能事半功倍</span>
+    </h1>
+    <label>
+        <span>背诵方法:</span><select name="func">
+        <option value="mo1">看首字母提示和英文解释</option>
+        <option value="mo2">连线英文单词和英文解释</option>
+        <option value="mo3">汉语解释和首字母提示补全</option>
+    </select>
+    </label>
+    <input type="text" name="wechat" value="{{ wechat }}" hidden>
+    <input type="text" name="cat" value="{{ cat }}" hidden>
+    <label>
+        <span>&nbsp;</span>
+        <input type="submit" class="button" value="开始背诵"/>
+    </label>
+</form>
+<br>
+<center>
+    <footer>Powered by <a href="http://www.liuyu.live"> Liu Yu</a></footer>
+</center>
+</body>
+</html>
